@@ -3,16 +3,32 @@ class Pokedex {
         const numberDisplay = document.getElementById('display');
         const setButton = document.getElementById('send');
         const wrapper = document.querySelector('div.wrapper');
-        let type = '';
-        this.requestFetch(numberDisplay, setButton, wrapper, type);
+        this.requestFetch(numberDisplay, setButton, wrapper);
         /* length = 807 */
     }
     
-    requestFetch(numberDisplay, setButton, wrapper, type){
+    requestFetch(numberDisplay, setButton, wrapper){
+        let searchWrapper;
+        let textWarning;
+        let type = '';
         setButton.addEventListener('click', async () => {
-            const dataBase = await fetch(`https://pokeapi.co/api/v2/pokemon/${numberDisplay.value}`);
-            const dataJson = await dataBase.json();
-            this.addContent(dataJson, wrapper, type);
+            if (numberDisplay.value < 1 || numberDisplay.value > 807 || !numberDisplay) {
+                if (numberDisplay.classList.contains('error')) {
+                }else{
+                    numberDisplay.insertAdjacentHTML('afterend', '<p>You can only write numbers<br>You can only write numbers between 1 and 807</p>');
+                    searchWrapper = document.querySelector('main > div.searchArea');
+                    textWarning = document.querySelector('main > div.searchArea > p');
+                }
+                numberDisplay.classList.add('error');
+            }else{
+                if (numberDisplay.classList.contains('error')) {
+                    searchWrapper.removeChild(textWarning);
+                    numberDisplay.classList.remove('error');
+                }
+                const dataBase = await fetch(`https://pokeapi.co/api/v2/pokemon/${numberDisplay.value}`);
+                const dataJson = await dataBase.json();
+                this.addContent(dataJson, wrapper, type);
+            }
         });
         
     }
