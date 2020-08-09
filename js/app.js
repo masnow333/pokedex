@@ -11,7 +11,8 @@ class Pokedex {
         let searchWrapper;
         let textWarning;
         let type = '';
-        setButton.addEventListener('click', async () => {
+        setButton.addEventListener('click', async (e) => {
+            e.preventDefault();
             if (numberDisplay.value < 1 || numberDisplay.value > 807 || !numberDisplay) {
                 if (numberDisplay.classList.contains('error')) {
                 }else{
