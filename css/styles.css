@@ -1,0 +1,46 @@
+main {
+  display: grid;
+  font-family: "Baloo Tamma 2", cursive;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100vh;
+  box-sizing: border-box;
+  align-items: center;
+}
+main div.searchArea {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+}
+main div.informationArea {
+  height: 70%;
+  display: grid;
+  align-content: center;
+  margin-right: 10%;
+}
+main div.informationArea div.wrapper {
+  text-transform: uppercase;
+  background: #a19b9b;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+main div.informationArea div.wrapper img {
+  background: #eeeeee;
+  width: 100%;
+  height: 100%;
+}
+main div.informationArea div.wrapper div.text {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  grid-template-columns: repeat(2, 1fr);
+}
+main div.informationArea div.wrapper div.text h5 {
+  font-size: 2rem;
+  margin: 2rem 0;
+  grid-column: 1/3;
+}
+main div.informationArea div.wrapper div.text p {
+  font-size: 1.2rem;
+}
+
+/*# sourceMappingURL=styles.css.map */
