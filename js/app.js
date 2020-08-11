@@ -8,17 +8,17 @@ class Pokedex {
     }
     
     requestFetch(numberDisplay, setButton, wrapper){
-        let searchWrapper;
+        let searchWrapper = document.querySelector('main > form > div.searchArea');
         let textWarning;
         let type = '';
         setButton.addEventListener('click', async (e) => {
             e.preventDefault();
             if (numberDisplay.value < 1 || numberDisplay.value > 807 || !numberDisplay) {
                 if (numberDisplay.classList.contains('error')) {
+                    console.log();
                 }else{
                     numberDisplay.insertAdjacentHTML('afterend', '<p>You can only write numbers<br>You can only write numbers between 1 and 807</p>');
-                    searchWrapper = document.querySelector('main > div.searchArea');
-                    textWarning = document.querySelector('main > div.searchArea > p');
+                    textWarning = document.querySelector('main > form > div.searchArea > p');
                 }
                 numberDisplay.classList.add('error');
             }else{
